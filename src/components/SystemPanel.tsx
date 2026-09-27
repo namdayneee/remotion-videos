@@ -14,11 +14,15 @@ export const SystemPanel=({activeStep,frame,fps}:{activeStep:number;frame:number
     <div style={{position:'absolute',bottom:20,left:24,fontFamily:theme.mono,fontSize:17,color:build?theme.cyan:theme.dim}}>context → instructions → layers → image</div>
   </Panel>
   <Panel title="02 / Container runtime" badge={activeStep===9?'STOPPED':running?'RUNNING':'WAITING'} height={450}>
-    <Connection x1={146} y1={198} x2={215} y2={198} start={4*FRAMES_PER_STEP} frame={frame} active={activeStep===4} height={450}/>
-    <Connection x1={367} y1={198} x2={439} y2={198} start={6*FRAMES_PER_STEP} frame={frame} active={activeStep===6} color={theme.green} height={450}/>
+    <Connection x1={146} y1={198} x2={215} y2={198} start={4*FRAMES_PER_STEP} frame={frame} active={activeStep===4} height={450} visibleUntil={9*FRAMES_PER_STEP+35}/>
+    <Connection x1={439} y1={198} x2={367} y2={198} start={6*FRAMES_PER_STEP} frame={frame} active={activeStep===6} color={theme.green} height={450} visibleUntil={9*FRAMES_PER_STEP+35}/>
+    <Connection x1={270} y1={236} x2={100} y2={300} start={7*FRAMES_PER_STEP} frame={frame} active={activeStep===7} color={theme.green} height={450} visibleUntil={9*FRAMES_PER_STEP+35}/>
+    <Connection x1={320} y1={236} x2={490} y2={300} start={8*FRAMES_PER_STEP} frame={frame} active={activeStep===8} height={450} visibleUntil={9*FRAMES_PER_STEP+35}/>
     <Node x={22} y={157} width={124} title="Image" detail="template" active={activeStep===4} visibleFrom={3*FRAMES_PER_STEP-30} frame={frame} fps={fps}/>
     <Node x={215} y={157} width={152} title="Container" detail="app :3000" active={running&&activeStep!==6} visibleFrom={4*FRAMES_PER_STEP} visibleUntil={9*FRAMES_PER_STEP+35} frame={frame} fps={fps}/>
     <Node x={439} y={157} width={116} title="Host" detail=":8080" active={activeStep===6} visibleFrom={6*FRAMES_PER_STEP} frame={frame} fps={fps}/>
+    <Node x={22} y={284} width={132} title="Volume" detail="app-data" active={activeStep===7} visibleFrom={7*FRAMES_PER_STEP} frame={frame} fps={fps}/>
+    <Node x={425} y={284} width={130} title="Network" detail="app-net" active={activeStep===8} visibleFrom={8*FRAMES_PER_STEP} frame={frame} fps={fps}/>
     <div style={{position:'absolute',left:22,bottom:22,display:'flex',gap:9,flexWrap:'wrap'}}><StatusBadge label="PORT 8080 → 3000" active={activeStep>=6&&activeStep<9}/><StatusBadge label="VOLUME app-data" active={activeStep>=7}/><StatusBadge label="NETWORK app-net" active={activeStep===8}/></div>
   </Panel>
   <Panel title="03 / Host foundation" badge="SHARED KERNEL" height={155}>
