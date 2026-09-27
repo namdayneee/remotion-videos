@@ -1,54 +1,31 @@
-# Remotion video
+# Remotion Visual Learning Studio
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+Short visual explainers for learning how computer systems work.
 
-Welcome to your Remotion project!
+## Run locally
 
-## Commands
+Requirements: Node.js 22 or newer and npm. In Git Bash, WSL, or a terminal inside Cursor:
 
-**Install Dependencies**
-
-```console
-npm i
-```
-
-**Start Preview**
-
-```console
+```bash
+git clone https://github.com/namdayneee/remotion-videos.git
+cd remotion-videos
+npm ci
 npm run dev
 ```
 
-**Render video**
+Choose `DockerExplainer` in Remotion Studio. This is a 1080 × 1920, 30 FPS, 35-second dashboard. `WebRequestExplainer` remains the original horizontal composition.
 
-```console
-npx remotion render
+```bash
+npm run lint
+npm test
+npm run build
+npm run render:docker
 ```
 
-**Upgrade Remotion**
+The MP4 is written to `out/docker-explainer.mp4` and ignored by Git.
 
-```console
-npx remotion upgrade
-```
+## Make another explainer
 
-## Docs
+Ask your coding agent for a short topic such as `dns` or `docker deep`. `AGENTS.md` describes the visual style and workflow. Docker content lives in `src/data/dockerSteps.ts`, reusable dashboard pieces in `src/components/`, and colors in `src/theme/tokens.ts`. Register every new composition in `src/Root.tsx` without removing existing videos.
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+The Docker composition is silent until audio assets are added. You can add licensed or self-recorded narration and effects under `public/audio/`; use `staticFile()` and Remotion's timeline to synchronize them. Never assume that the written narration script is already an audible voice track.

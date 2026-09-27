@@ -102,7 +102,7 @@ When necessary, first show the big picture and then zoom into individual compone
 
 Unless I explicitly request otherwise:
 
-- Resolution: 1920x1080
+- Resolution: 1080x1920 (9:16) for new short visual explainers; keep older compositions at their existing dimensions unless asked to revise them
 - FPS: 30
 - Duration: approximately 30-60 seconds
 - Language: Vietnamese
@@ -113,6 +113,10 @@ Unless I explicitly request otherwise:
 - Clean system diagrams
 - Consistent spacing
 - Professional but simple appearance
+
+For step-by-step system explainers, prefer one persistent dashboard. Keep the title, step rail, terminal and system panels anchored in place; animate the state inside them. Highlight the active step in cyan, mark completed steps green, dim upcoming steps. Animate commands, nodes, connections and packets from the current Remotion frame. Keep captions readable on a phone. The viewer should see one system evolving through the steps.
+
+Use `src/data/dockerSteps.ts`, `src/components/` and `src/theme/tokens.ts` as the Docker example. For a new subject, add a new composition and its own step data or simulator; share presentation components when they fit. Do not turn every concept into a ten-step list if a different diagram explains it better.
 
 The video is educational, not promotional.
 
@@ -384,8 +388,9 @@ After making changes:
 1. Ensure TypeScript compiles.
 2. Ensure the Remotion bundle can load.
 3. Fix errors introduced by the change.
-4. Do not leave temporary files behind.
-5. Do not render the full MP4 unless I explicitly request rendering.
+4. Run `npm test` for compositions with timeline data; preview representative frames and check text fit.
+5. Do not leave temporary files behind.
+6. Do not render the full MP4 unless I explicitly request rendering.
 
 Studio preview is the normal development target.
 

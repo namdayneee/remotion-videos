@@ -593,7 +593,7 @@ const MentalModel = () => {
 export const WebRequestExplainer = () => {
   return (
     <AbsoluteFill>
-      <Sequence from={0} durationInFrames={75}>
+      <Sequence durationInFrames={75}>
         <Intro />
       </Sequence>
 
