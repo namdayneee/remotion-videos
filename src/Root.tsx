@@ -1,10 +1,26 @@
-import "./index.css";
-import { MyComposition } from "./Composition";
+import {Composition} from "remotion";
+import {DockerExplainer} from "./DockerExplainer";
+import {WebRequestExplainer} from "./WebRequestExplainer";
 
-export const RemotionRoot: React.FC = () => {
+export const RemotionRoot = () => {
   return (
     <>
-      <MyComposition />
+      <Composition
+        id="DockerExplainer"
+        component={DockerExplainer}
+        durationInFrames={990}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="WebRequestExplainer"
+        component={WebRequestExplainer}
+        durationInFrames={1200}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
     </>
   );
 };
