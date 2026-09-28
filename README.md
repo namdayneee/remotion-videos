@@ -4,16 +4,6 @@ Các video hoạt hình ngắn giúp trực quan hóa cách hệ thống máy t�
 
 Đây là dự án học tập cá nhân: mỗi chủ đề kỹ thuật (docker, dns, client–server, hành trình một request web…) được chuyển thành một video Remotion với sơ đồ hệ thống, packet di chuyển, terminal và dashboard động — thay vì giải thích bằng đoạn văn dài.
 
-## Video hiện có
-
-| Composition | Chủ đề | Thời lượng |
-| --- | --- | --- |
-| `DockerExplainer` | Cách Docker đóng gói và chạy ứng dụng | 35 giây |
-| `ClientServerExplainer` | Mô hình client–server, TCP, HTTP request/response | ~30 giây |
-| `WebVisitExplainer` | Hành trình gõ một địa chỉ web: DNS → TCP/TLS → HTTP → render | 36 giây |
-
-Tất cả video đều ở định dạng dọc 1080 × 1920 (9:16), 30 FPS, ngôn ngữ tiếng Việt. Kịch bản lời thoại (narration script) nằm trong `public/audio/narration/` — video hiện chưa có file âm thanh, chỉ có kịch bản để thu âm/TTS sau này.
-
 ## Chạy locally
 
 Yêu cầu: Node.js 22 trở lên và npm.
@@ -25,7 +15,7 @@ npm ci
 npm run dev
 ```
 
-Remotion Studio sẽ mở trong trình duyệt. Chọn composition (`DockerExplainer`, `ClientServerExplainer`, `WebVisitExplainer`) để xem trước và scrub timeline.
+Remotion Studio sẽ mở trong trình duyệt. Chọn composition để xem trước và scrub timeline.
 
 ## Các lệnh npm
 
